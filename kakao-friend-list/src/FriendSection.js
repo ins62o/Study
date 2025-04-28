@@ -6,9 +6,13 @@ export default function FriendSection(props) {
   return (
     <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
       <Text style={{ color: "grey" }}>친구 {props.friendProfileLen}</Text>
-      <TouchableOpacity onPress={props.onPress}>
-        <MaterialIcons name="keyboard-arrow-down" size={24} color="lightgray" />
-        {/* <MaterialIcons name="keyboard-arrow-up" size={24} color="black" /> */}
+      <TouchableOpacity>
+        <MaterialIcons
+          name={`keyboard-arrow-${props.isOpened ? "down" : "up"}`}
+          size={24}
+          color="lightgray"
+          onPress={props.onPressArrow}
+        />
       </TouchableOpacity>
     </View>
   );

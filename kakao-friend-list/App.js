@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Header from "./src/Header";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
@@ -8,14 +8,19 @@ import Margin from "./src/Margin";
 import Division from "./src/Division";
 import FriendSection from "./src/FriendSection";
 import FriendList from "./src/FriendList";
+import { useState } from "react";
+import Tabar from "./src/Tabar";
 
 const StatusBarHeight = getStatusBarHeight(true);
 
 export default function App() {
-  const onPressArrow = () => console.log("click");
+  const [isOpened, setIsOpened] = useState(true);
+  const [selectedTabIdx, setSelectedTabIdx] = useState(0);
+  const onPressArrow = () => setIsOpened(!isOpened);
+
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.container} edges={["right", "left"]}>
+    <View style={styles.container}>
+      <View style={{ flex: 1, paddingHorizontal: 15 }}>
         <Header />
 
         <Margin height={10} />
@@ -35,11 +40,16 @@ export default function App() {
         <FriendSection
           friendProfileLen={friendProfiles.length}
           onPressArrow={onPressArrow}
+          isOpened={isOpened}
         />
 
-        <FriendList data={friendProfiles} />
-      </SafeAreaView>
-    </SafeAreaProvider>
+        <FriendList data={friendProfiles} isOpened={isOpened} />
+      </View>
+      <Tabar
+        selectedTabIdx={selectedTabIdx}
+        setSelectedTabIdx={setSelectedTabIdx}
+      />
+    </View>
   );
 }
 
@@ -48,7 +58,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     paddingTop: StatusBarHeight,
-    paddingHorizontal: 15,
-    marginTop: 30,
   },
 });
