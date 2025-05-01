@@ -12,4 +12,4 @@
 
 | 분야              | 설명                                                              |
 |-------------------|-------------------------------------------------------------------|
-| [React Native]([./react-native/](https://github.com/ins62o/Study/tree/main/React%20Native/))      | 모바일 앱 개발을 위한 학습 및 실습 코드                           |
+| [React Native](https://github.com/ins62o/Study/tree/main/React%20Native)      | 모바일 앱 개발을 위한 학습 및 실습 코드                           |
