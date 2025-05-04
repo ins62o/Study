@@ -27,11 +27,11 @@
 
 ## 🛠️ 개발 문서
 
-| 제목                                                                                                             | 설명                                               |
-| ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| [ScrollView vs FlatList](https://www.notion.so/ScrollView-vs-FlatList-1e113befc507800bbc4bd3edb278410b)          | ScrollView와 FlatList의 차이점 비교 및 사용 가이드 |
-| [React Native Styled-components Guide](https://www.notion.so/Styled-Components-1e613befc507802aae8afa296bdb05a8) | React Native에서 styled-components 사용법          |
-| [React Native Safe Area Context](https://www.notion.so/1e613befc507803ba032f8fb0a870e86)                         | 아이콘 터치 범위 늘리기                            |
+| 제목                                                                                                             
+| ----------------------------------------------------------------------------------------------------------------
+| [ScrollView & FlatList 차이점](https://www.notion.so/ScrollView-vs-FlatList-1e113befc507800bbc4bd3edb278410b)          
+| [리엑트 네이티브 스타일 컴포넌트](https://www.notion.so/Styled-Components-1e613befc507802aae8afa296bdb05a8) 
+| [아이콘 범위 늘리기](https://www.notion.so/1e613befc507803ba032f8fb0a870e86)                         
 
 ## 🗂️ 프로젝트 구조
 
