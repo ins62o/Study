@@ -68,7 +68,7 @@ export default function Calculator() {
       </View>
 
       {/* [AC ~ /] */}
-      <View style={{ flexDirection: "row", width: "100%" }}>
+      <View style={styles.rowContainer}>
         <Button
           type="reset"
           text={hasInput ? "C" : "AC"}
@@ -85,7 +85,7 @@ export default function Calculator() {
       </View>
 
       {/* [7 ~ x] */}
-      <View style={{ flexDirection: "row", width: "100%" }}>
+      <View style={styles.rowContainer}>
         {[7, 8, 9].map((num) => (
           <Button
             type="num"
@@ -105,7 +105,7 @@ export default function Calculator() {
       </View>
 
       {/* [4 ~ -] */}
-      <View style={{ flexDirection: "row", width: "100%" }}>
+      <View style={styles.rowContainer}>
         {[4, 5, 6].map((num) => (
           <Button
             type="num"
@@ -125,7 +125,7 @@ export default function Calculator() {
       </View>
 
       {/* [1~ +] */}
-      <View style={{ flexDirection: "row", width: "100%" }}>
+      <View style={styles.rowContainer}>
         {[1, 2, 3].map((num) => (
           <Button
             type="num"
@@ -145,7 +145,7 @@ export default function Calculator() {
       </View>
 
       {/* [0 ~ =] */}
-      <View style={{ flexDirection: "row", width: "100%" }}>
+      <View style={styles.rowContainer}>
         <Button type="num" text="0" onPress={() => onPressNum("0")} flex={3} />
         <Button
           type="operator"
@@ -167,5 +167,10 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     paddingVertical: 10,
     paddingHorizontal: 5,
+  },
+
+  rowContainer: {
+    flexDirection: "row",
+    width: "100%",
   },
 });
