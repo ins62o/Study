@@ -7,6 +7,8 @@ export default function AddTodoInput({
   onChangeText,
   placeholder,
   onPressAdd,
+  onSubmitEditing,
+  onFocus,
 }) {
   return (
     <View
@@ -22,6 +24,9 @@ export default function AddTodoInput({
         onChangeText={onChangeText}
         placeholder={placeholder}
         style={{ padding: 5, paddingBottom: 7, flex: 1, color: "595959" }}
+        onSubmitEditing={onSubmitEditing}
+        blurOnSubmit={false}
+        onFocus={onFocus}
       />
 
       <TouchableOpacity onPress={onPressAdd} style={{ padding: 5 }}>
