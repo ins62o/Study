@@ -13,7 +13,7 @@ export default function TextInputModal({
   albumTitle,
   setAlbumTitle,
   onSubmitEditing,
-  onPressBackdrop,
+  onPressTextInputModalBackdrop,
 }) {
   return (
     <Modal animationType="fade" transparent={true} visible={modalVisible}>
@@ -21,7 +21,7 @@ export default function TextInputModal({
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={{ flex: 1 }}
       >
-        <Pressable style={{ flex: 1 }} onPress={onPressBackdrop}>
+        <Pressable style={{ flex: 1 }} onPress={onPressTextInputModalBackdrop}>
           <SafeAreaView
             style={{ width: "100%", position: "absolute", bottom: 0 }}
           >
