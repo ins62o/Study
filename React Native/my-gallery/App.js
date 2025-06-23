@@ -1,4 +1,5 @@
 import {
+  Alert,
   Dimensions,
   FlatList,
   Image,
@@ -40,14 +41,37 @@ export default function App() {
     closeBigImgModal,
     selectedImage,
     selectImage,
+    moveToPreviousImage,
+    moveToNextImage,
+    showPreviousArrow,
+    showNextArrow,
   } = useGallery();
 
   const onPressOpenGallery = () => {
     pickImage();
   };
 
+  const onPressWatchAd = () => {
+    console.log("Loading AD");
+  };
+
   const onLongPressImage = (imageId) => deleteImage(imageId);
-  const onPressAddAlbum = () => openTextInputModal();
+  const onPressAddAlbum = () => {
+    if (albums.length >= 2) {
+      Alert.alert("광고를 시청해야 앨범을 추가할 수 있습니다.", "", [
+        {
+          stlye: "cancel",
+          text: "닫기",
+        },
+        {
+          text: "광고 시청",
+          onPress: onPressWatchAd,
+        },
+      ]);
+    } else {
+      openTextInputModal();
+    }
+  };
   const onSubmitEditing = () => {
     if (!albumTitle) return;
 
@@ -83,6 +107,14 @@ export default function App() {
     // TODO : image
     selectImage(image);
     openBigImgModal();
+  };
+
+  const onPressLeftArrow = () => {
+    moveToPreviousImage();
+  };
+
+  const onPressRightArrow = () => {
+    moveToNextImage();
   };
 
   const renderItem = ({ item: image, index }) => {
@@ -145,6 +177,10 @@ export default function App() {
         modalVisible={bigImgModalVisible}
         onPressBackdrop={onPressBigImgModalBackdrop}
         selectedImage={selectedImage}
+        onPressLeftArrow={onPressLeftArrow}
+        onPressRightArrow={onPressRightArrow}
+        showPreviousArrow={showPreviousArrow}
+        showNextArrow={showNextArrow}
       />
 
       {/* 이미지 리스트 */}

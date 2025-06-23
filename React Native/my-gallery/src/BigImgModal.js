@@ -1,12 +1,35 @@
-import { View, Modal, Pressable, Image } from "react-native";
+import { View, Modal, Pressable, Image, TouchableOpacity } from "react-native";
+import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
+
+const ArrowButton = ({ iconName, onPress, disabled }) => {
+  return (
+    <TouchableOpacity
+      disabled={disabled}
+      onPress={onPress}
+      style={{
+        height: "100%",
+        paddingHorizontal: 20,
+        justifyContent: "center",
+      }}
+    >
+      <SimpleLineIcons
+        name={iconName}
+        size={20}
+        color={disabled ? "transparent" : "black"}
+      />
+    </TouchableOpacity>
+  );
+};
 
 export default function BigImgeModal({
   modalVisible,
   onPressBackdrop,
   selectedImage,
+  onPressLeftArrow,
+  onPressRightArrow,
+  showPreviousArrow,
+  showNextArrow,
 }) {
-  console.log("selectedImage", selectedImage);
-
   return (
     <Modal animationType="fade" transparent={true} visible={modalVisible}>
       <Pressable
@@ -18,13 +41,30 @@ export default function BigImgeModal({
         }}
         onPress={onPressBackdrop}
       >
-        <Pressable>
-          <Image
-            source={{ uri: selectedImage?.uri }}
-            style={{ width: 280, height: 280, backgroundColor: "white" }}
-            resizeMode="contain"
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          {/* < 화살표 */}
+          <ArrowButton
+            iconName={"arrow-left"}
+            onPress={onPressLeftArrow}
+            disabled={!showPreviousArrow}
           />
-        </Pressable>
+
+          {/* 이미지 */}
+          <Pressable>
+            <Image
+              source={{ uri: selectedImage?.uri }}
+              style={{ width: 280, height: 280, backgroundColor: "white" }}
+              resizeMode="contain"
+            />
+          </Pressable>
+
+          {/* < 화살표 */}
+          <ArrowButton
+            iconName={"arrow-right"}
+            onPress={onPressRightArrow}
+            disabled={!showNextArrow}
+          />
+        </View>
       </Pressable>
     </Modal>
   );
