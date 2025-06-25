@@ -12,6 +12,7 @@ import { useGallery } from "./src/use-gallery";
 import MyDropDownPicker from "./src/MyDropDownPicker";
 import TextInputModal from "./src/TextInputModal";
 import BigImgModal from "./src/BigImgModal";
+import ImageList from "./src/ImageList";
 
 const width = Dimensions.get("screen").width;
 const columnSize = width / 3;
@@ -184,11 +185,11 @@ export default function App() {
       />
 
       {/* 이미지 리스트 */}
-      <FlatList
-        data={imagesWithAddButton}
-        renderItem={renderItem}
-        numColumns={3}
-        style={{ zIndex: -1 }}
+      <ImageList
+        imagesWithAddButton={imagesWithAddButton}
+        onPressOpenGallery={onPressOpenGallery}
+        onLongPressImage={onLongPressImage}
+        onPressImage={onPressImage}
       />
     </SafeAreaView>
   );
