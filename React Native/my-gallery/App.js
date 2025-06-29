@@ -52,9 +52,7 @@ export default function App() {
     pickImage();
   };
 
-  const onPressWatchAd = () => {
-    console.log("Loading AD");
-  };
+  const onPressWatchAd = () => {};
 
   const onLongPressImage = (imageId) => deleteImage(imageId);
   const onPressAddAlbum = () => {

@@ -12,12 +12,6 @@ const divisor = width / minColumSize;
 const numColumns = Math.floor(divisor);
 const columnSize = width / numColumns;
 
-console.log("width", width);
-console.log("minColumSize", minColumSize);
-console.log("divisor", divisor);
-console.log("numColumns", numColumns);
-console.log("columnSize", columnSize);
-
 export default function ImageList({
   imagesWithAddButton,
   onPressOpenGallery,
@@ -63,9 +57,6 @@ export default function ImageList({
       renderItem={renderItem}
       numColumns={3}
       style={{ zIndex: -1 }}
-      onLayout={(e) => {
-        console.log("e.nativeEvent.layout.width", e.nativeEvent.layout.width);
-      }}
     />
   );
 }
